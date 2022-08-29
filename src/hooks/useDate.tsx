@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function useDate() {
   const date = new Date();
   const year = date.getFullYear();
@@ -7,6 +5,6 @@ export default function useDate() {
   const day = date.getDate();
   const hour = date.getHours();
   const min = date.getMinutes();
-  const now = year + "/" + month + "/" + day + " " + hour + ":" + min;
+  const now = year + " / " + month + " / " + day + " " + hour + ":" + min;
   return now;
 }
