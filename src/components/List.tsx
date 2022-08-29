@@ -9,7 +9,14 @@ export default function List() {
   return (
     <div className="flex flex-col justify-center">
       {comments.map((comment) => {
-        return <Comments key={comment.id} id={comment.id} info={comment} />;
+        return (
+          <Comments
+            key={comment.id}
+            id={comment.id}
+            content={comment.content}
+            time={comment.time}
+          />
+        );
       })}
     </div>
   );
