@@ -14,10 +14,13 @@ export default function Reply({ commentId, comment }: PropType) {
   const [replyContent, setReplyContent] = useState<string>("");
   const dispatch = useAppDispatch();
   const now = useDate();
-  useEffect(() => console.log(comment), [comment]);
+  useEffect(() => console.log(comment.replies), [comment]);
 
   return (
     <div className="w-full md:w-full flex flex-col items-start pl-4">
+      {comment.replies && (
+        <ReplyItem key={comment?.replies?.id} replies={comment.replies} />
+      )}
       <div className="w-full md:w-full px-3 mb-2 mt-2">
         <textarea
           className="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white"
@@ -47,9 +50,6 @@ export default function Reply({ commentId, comment }: PropType) {
           Post
         </button>
       </div>
-      {comment.replies && (
-        <ReplyItem key={comment?.replies?.id} replies={comment.replies} />
-      )}
     </div>
   );
 }
