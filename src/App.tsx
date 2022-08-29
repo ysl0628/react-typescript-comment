@@ -1,6 +1,6 @@
 import "./App.css";
 import Edit from "./components/Edit";
-import Comment from "./components/Comment";
+import List from "./components/List";
 
 function App() {
   // const [content, setContent] = useState<string | number>("");
@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <Edit />
-      <Comment />
+      <List />
     </div>
   );
 }
