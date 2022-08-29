@@ -1,34 +1,25 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface CommentState {
-  comment: [
-    {
-      id: string;
-      content: string;
-      time: string;
-      reply?: string[];
-    }
-  ];
+export interface Comment {
+  id: string;
+  content: string;
+  time: string;
+  reply?: string[];
+}
+export interface CommentState {
+  comment: Comment[];
 }
 
 const initialState: CommentState = {
-  comment: [
-    {
-      id: "",
-      content: "",
-      time: "",
-      reply: [],
-    },
-  ],
+  comment: [],
 };
 
 export const commentSlice = createSlice({
   name: "comment",
   initialState,
   reducers: {
-    postComment(state, action: PayloadAction<string>) {
-      //   state.comment.content = action.payload;
-      console.log(action.payload);
+    postComment(state, action: PayloadAction<Comment>) {
+      state.comment = [action.payload, ...state.comment];
     },
   },
 });
