@@ -12,14 +12,7 @@ export default function List() {
         <h1 className="text-lg md:text-lg pt-px text-orange-700 ">Comments</h1>
       </div>
       {comments.map((comment) => {
-        return (
-          <Comments
-            key={comment.id}
-            id={comment.id}
-            content={comment.content}
-            time={comment.time}
-          />
-        );
+        return <Comments key={comment.id} id={comment.id} comment={comment} />;
       })}
     </div>
   );
