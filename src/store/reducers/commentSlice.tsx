@@ -29,10 +29,10 @@ export const commentSlice = createSlice({
       state.comment = [action.payload, ...state.comment];
     },
     postReply(state, action: PayloadAction<Reply>) {
-      const replyComment: any = state.comment.find((comment, index) => {
+      const replyComment: Comment = state.comment.find((comment, index) => {
         return comment.id === action.payload.commentId;
-      });
-      replyComment.replies = action.payload;
+      })!;
+      replyComment.replies = [action.payload];
       //   const length = Object.keys(reply).length;
       //   if (!replyComment) return;
       //   if (typeof commentIndex === number) {
