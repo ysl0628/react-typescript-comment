@@ -1,15 +1,26 @@
-import React, { useState } from "react";
-import { useAppDispatch } from "../hook/hook";
+import React, { useEffect, useState } from "react";
+import { useAppDispatch, useAppSelector } from "../hooks/hook";
 import { postComment } from "../store/reducers/commentSlice";
+import uuid from "react-uuid";
+import { RootState } from "../store";
+import useDate from "../hooks/useDate";
 
 export default function Edit() {
-  const [comment, setComment] = useState<string>("");
+  const [content, setContent] = useState<string>("");
   const dispatch = useAppDispatch();
+  const comment = useAppSelector((state: RootState) => state.comment);
+  const now = useDate();
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    dispatch(postComment(comment));
+    dispatch(postComment({ id: uuid(), content: content, time: now }));
+    setContent("");
   };
+
+  useEffect(() => {
+    console.log(comment);
+  }, [comment]);
+
   return (
     <div className="flex justify-center">
       <div className="flex mx-auto items-center justify-center shadow-lg mt-20 mb-4 max-w-lg">
@@ -26,8 +37,8 @@ export default function Edit() {
                 className="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white"
                 name="body"
                 placeholder="Type Your Comment"
-                onChange={(e) => setComment(e.target.value)}
-                value={comment}
+                onChange={(e) => setContent(e.target.value)}
+                value={content}
                 required
               ></textarea>
             </div>
