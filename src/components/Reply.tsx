@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import uuid from "react-uuid";
-import { useAppDispatch, useAppSelector } from "../hooks/hook";
+import { useAppDispatch } from "../hooks/hook";
 import useDate from "../hooks/useDate";
 import { postReply } from "../store/reducers/commentSlice";
 import ReplyItem from "./ReplyItem";
