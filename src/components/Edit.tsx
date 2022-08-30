@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../hooks/hook";
-import { postComment } from "../store/reducers/commentSlice";
+import { createComment } from "../store/reducers/commentSlice";
 import uuid from "react-uuid";
 import { RootState } from "../store";
 import useDate from "../hooks/useDate";
@@ -13,7 +13,7 @@ export default function Edit() {
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    dispatch(postComment({ id: uuid(), content: content, time: now }));
+    dispatch(createComment({ id: uuid(), content: content, time: now }));
     setContent("");
   };
 
