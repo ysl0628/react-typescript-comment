@@ -20,22 +20,23 @@ export interface CommentState {
 const initialState: CommentState = {
   comment: [],
 };
-// { id: "", time: "now", content: "good", replies: [] }
 export const commentSlice = createSlice({
   name: "comment",
   initialState,
   reducers: {
-    postComment(state, action: PayloadAction<Comment>) {
+    createComment(state, action: PayloadAction<Comment>) {
       state.comment = [action.payload, ...state.comment];
     },
-    postReply(state, action: PayloadAction<Reply>) {
+    createReply(state, action: PayloadAction<Reply>) {
       const replyComment: Comment = state.comment.find((comment) => {
         return comment.id === action.payload.commentId;
       })!;
-      replyComment.replies = [action.payload];
+      Array.isArray(replyComment.replies)
+        ? (replyComment.replies = [action.payload, ...replyComment.replies])
+        : (replyComment.replies = [action.payload]);
     },
   },
 });
 
-export const { postComment, postReply } = commentSlice.actions;
+export const { createComment, createReply } = commentSlice.actions;
 export default commentSlice.reducer;
