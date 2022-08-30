@@ -18,7 +18,8 @@ export interface CommentState {
 }
 
 const initialState: CommentState = {
-  comment: [],
+  // @ts-ignore
+  comment: JSON.parse(localStorage.getItem("comments")) || [],
 };
 export const commentSlice = createSlice({
   name: "comment",
@@ -26,6 +27,7 @@ export const commentSlice = createSlice({
   reducers: {
     createComment(state, action: PayloadAction<Comment>) {
       state.comment = [action.payload, ...state.comment];
+      localStorage.setItem("comments", JSON.stringify(state.comment));
     },
     createReply(state, action: PayloadAction<Reply>) {
       const replyComment: Comment = state.comment.find((comment) => {
@@ -34,6 +36,7 @@ export const commentSlice = createSlice({
       Array.isArray(replyComment.replies)
         ? (replyComment.replies = [action.payload, ...replyComment.replies])
         : (replyComment.replies = [action.payload]);
+      localStorage.setItem("comments", JSON.stringify(state.comment));
     },
   },
 });
