@@ -1,14 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { useAppDispatch, useAppSelector } from "../hooks/hook";
+import React, { useState } from "react";
+import { useAppDispatch } from "../hooks/hook";
 import { createComment } from "../store/reducers/commentSlice";
 import uuid from "react-uuid";
-import { RootState } from "../store";
 import useDate from "../hooks/useDate";
 
 export default function Edit() {
   const [content, setContent] = useState<string>("");
   const dispatch = useAppDispatch();
-  const comment = useAppSelector((state: RootState) => state.comment);
   const now = useDate();
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -16,10 +14,6 @@ export default function Edit() {
     dispatch(createComment({ id: uuid(), content: content, time: now }));
     setContent("");
   };
-
-  useEffect(() => {
-    console.log(comment);
-  }, [comment]);
 
   return (
     <div className="flex justify-center">
