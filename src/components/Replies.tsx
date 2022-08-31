@@ -3,15 +3,20 @@ import { useState } from "react";
 import uuid from "react-uuid";
 import { useAppDispatch } from "../hooks/hook";
 import useDate from "../hooks/useDate";
-import { createReply } from "../store/reducers/commentSlice";
+import { createReply, Reply } from "../store/reducers/commentSlice";
 import ReplyItem from "./ReplyItem";
 
-interface PropType {
+type PropType = {
   commentId: string;
-  comment: Comment | any;
-}
+  comment: {
+    id: string;
+    content: string;
+    time: string;
+    replies?: Reply[];
+  };
+};
 
-export default function Reply({ commentId, comment }: PropType) {
+export default function Replies({ commentId, comment }: PropType) {
   const [replyContent, setReplyContent] = useState<string>("");
   const dispatch = useAppDispatch();
   // const createAt = useDate();
@@ -52,7 +57,7 @@ export default function Reply({ commentId, comment }: PropType) {
             <h1 className="text-start text-lg px-3 py-1 font-bold text-orange-700">
               Reply
             </h1>
-            {comment.replies.map((reply: any) => (
+            {comment.replies.map((reply) => (
               <ReplyItem key={reply.id} replies={reply} />
             ))}
           </div>

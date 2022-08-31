@@ -1,10 +1,16 @@
 import React, { useState } from "react";
-import Reply from "./Reply";
+import { Reply } from "../store/reducers/commentSlice";
+import Replies from "./Replies";
 
-interface PropType {
+type PropType = {
   id: string;
-  comment: Comment | any;
-}
+  comment: {
+    id: string;
+    content: string;
+    time: string;
+    replies?: Reply[];
+  };
+};
 
 export default function Comments({ id, comment }: PropType) {
   const [reply, setReply] = useState<boolean>(false);
@@ -38,7 +44,7 @@ export default function Comments({ id, comment }: PropType) {
                 </button>
               </div>
             </div>
-            {reply && <Reply commentId={id} comment={comment} />}
+            {reply && <Replies commentId={id} comment={comment} />}
           </div>
         </form>
       </div>

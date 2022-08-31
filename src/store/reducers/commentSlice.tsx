@@ -1,21 +1,26 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-export interface Reply {
+export type Reply = {
   commentId: string;
   id: string;
   content: string;
   time: string;
-}
-export interface Comment {
+};
+export type Comment = {
   id: string;
   content: string;
   time: string;
   replies?: Reply[];
-}
+};
 
-export interface CommentState {
-  comment: Comment[];
-}
+export type CommentState = {
+  comment: {
+    id: string;
+    content: string;
+    time: string;
+    replies?: Reply[];
+  }[];
+};
 
 const initialState: CommentState = {
   // @ts-ignore

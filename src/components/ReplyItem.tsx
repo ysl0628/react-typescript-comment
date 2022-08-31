@@ -1,8 +1,11 @@
-import React from "react";
-import { Reply } from "../store/reducers/commentSlice";
-interface PropType {
-  replies: Reply | any;
-}
+type PropType = {
+  replies: {
+    commentId: string;
+    id: string;
+    content: string;
+    time: string;
+  };
+};
 
 export default function ReplyItem({ replies }: PropType) {
   return (
