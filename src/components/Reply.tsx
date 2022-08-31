@@ -1,3 +1,4 @@
+import moment from "moment";
 import { useState } from "react";
 import uuid from "react-uuid";
 import { useAppDispatch } from "../hooks/hook";
@@ -13,15 +14,12 @@ interface PropType {
 export default function Reply({ commentId, comment }: PropType) {
   const [replyContent, setReplyContent] = useState<string>("");
   const dispatch = useAppDispatch();
-  const now = useDate();
+  // const createAt = useDate();
+  const now = moment().local().format("YYYY/MM/DD h:mm:ss a");
 
   return (
-    <div className="w-full md:w-full flex flex-col items-start pl-4">
-      {comment.replies &&
-        comment.replies.map((reply: any) => (
-          <ReplyItem key={reply.id} replies={reply} />
-        ))}
-      <div className="w-full md:w-full px-3 mb-2 mt-2">
+    <div className="w-full md:w-full flex flex-col items-start pl-5">
+      <div className="w-full md:w-full pl-5 pr-3 mb-2 mt-2">
         <textarea
           className="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white"
           name="body"
@@ -49,6 +47,16 @@ export default function Reply({ commentId, comment }: PropType) {
         >
           Post
         </button>
+        {comment.replies && (
+          <div>
+            <h1 className="text-start text-lg px-3 py-1 font-bold text-orange-700">
+              Reply
+            </h1>
+            {comment.replies.map((reply: any) => (
+              <ReplyItem key={reply.id} replies={reply} />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
