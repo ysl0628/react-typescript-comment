@@ -9,7 +9,9 @@ export default function List() {
   return (
     <div className="flex flex-col justify-center">
       <div className="flex mx-auto justify-start mt-8 max-w-lg">
-        <h1 className="text-lg md:text-lg pt-px text-orange-700 ">Comments</h1>
+        <h1 className="md:text-2xl text-2xl font-bold pt-px text-orange-700 ">
+          Comments
+        </h1>
       </div>
       {comments.map((comment) => {
         return <Comments key={comment.id} id={comment.id} comment={comment} />;
