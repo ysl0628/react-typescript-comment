@@ -58,7 +58,7 @@ export default function Replies({ commentId, comment }: PropType) {
               Reply
             </h1>
             {comment.replies.map((reply) => (
-              <ReplyItem key={reply.id} replies={reply} />
+              <ReplyItem key={reply.id} reply={reply} />
             ))}
           </div>
         )}
