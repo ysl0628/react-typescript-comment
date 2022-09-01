@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useAppDispatch } from "../hooks/hook";
 import { createComment } from "../store/reducers/commentSlice";
 import uuid from "react-uuid";
-import useDate from "../hooks/useDate";
+// import useDate from "../hooks/useDate";
 import moment from "moment";
 
 export default function Edit() {
@@ -33,8 +33,8 @@ export default function Edit() {
                 className="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white"
                 name="body"
                 placeholder="Type Your Comment"
-                onChange={(e) => setContent(e.target.value)}
                 value={content}
+                onChange={(e) => setContent(e.target.value)}
                 required
               ></textarea>
             </div>

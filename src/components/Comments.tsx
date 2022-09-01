@@ -24,7 +24,14 @@ export default function Comments({ comment }: PropType) {
             </h2>
             <div className="w-full md:w-full px-3 mb-2 mt-2">
               <div className="rounded border border-gray-300 leading-normal resize-none w-full h-20 py-2 px-3 font-medium focus:outline-none focus:bg-white">
-                {comment.content}
+                {comment.content.split("\n").map((item) => {
+                  return (
+                    <span>
+                      {item}
+                      <br />
+                    </span>
+                  );
+                })}
               </div>
             </div>
             <div className="w-full md:w-full flex items-start px-3">

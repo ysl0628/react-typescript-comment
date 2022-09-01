@@ -15,7 +15,14 @@ export default function ReplyItem({ reply }: PropType) {
        resize-none w-full md:w-full pb-2 pt-1 font-medium break-words
          focus:outline-none focus:bg-white"
       >
-        {reply.content}
+        {reply.content.split("\n").map((item) => {
+          return (
+            <span>
+              {item}
+              <br />
+            </span>
+          );
+        })}
       </div>
       <div className="flex items-start w-1/2 text-gray-700 mt-2 mr-auto">
         <p className="text-xs md:text-sm pt-px align-middle">
