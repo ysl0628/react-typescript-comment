@@ -3,7 +3,6 @@ import { Reply } from "../store/reducers/commentSlice";
 import Replies from "./Replies";
 
 type PropType = {
-  id: string;
   comment: {
     id: string;
     content: string;
@@ -12,7 +11,7 @@ type PropType = {
   };
 };
 
-export default function Comments({ id, comment }: PropType) {
+export default function Comments({ comment }: PropType) {
   const [reply, setReply] = useState<boolean>(false);
 
   return (
@@ -44,7 +43,7 @@ export default function Comments({ id, comment }: PropType) {
                 </button>
               </div>
             </div>
-            {reply && <Replies commentId={id} comment={comment} />}
+            {reply && <Replies commentId={comment.id} comment={comment} />}
           </div>
         </form>
       </div>

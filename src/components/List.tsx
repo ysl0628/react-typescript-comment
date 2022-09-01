@@ -14,7 +14,7 @@ export default function List() {
         </h1>
       </div>
       {comments.map((comment) => {
-        return <Comments key={comment.id} id={comment.id} comment={comment} />;
+        return <Comments key={comment.id} comment={comment} />;
       })}
     </div>
   );
