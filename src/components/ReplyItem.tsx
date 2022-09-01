@@ -15,9 +15,9 @@ export default function ReplyItem({ reply }: PropType) {
        resize-none w-full md:w-full pb-2 pt-1 font-medium break-words
          focus:outline-none focus:bg-white"
       >
-        {reply.content.split("\n").map((item) => {
+        {reply.content.split("\n").map((item, index) => {
           return (
-            <span>
+            <span key={"_" + index}>
               {item}
               <br />
             </span>

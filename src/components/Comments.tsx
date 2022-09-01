@@ -23,10 +23,10 @@ export default function Comments({ comment }: PropType) {
               ID: {comment.id}
             </h2>
             <div className="w-full md:w-full px-3 mb-2 mt-2">
-              <div className="rounded border border-gray-300 leading-normal resize-none w-full h-20 py-2 px-3 font-medium focus:outline-none focus:bg-white">
-                {comment.content.split("\n").map((item) => {
+              <div className="rounded border border-gray-300 leading-normal resize-none w-full max-h-20 py-2 px-3 font-medium overflow-y-auto focus:outline-none focus:bg-white">
+                {comment.content.split("\n").map((item, index) => {
                   return (
-                    <span>
+                    <span key={"_" + index}>
                       {item}
                       <br />
                     </span>
