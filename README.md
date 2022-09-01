@@ -31,3 +31,8 @@
 
 ### 換行效果
 ![Imgur](https://imgur.com/Ie5DGsZ.png)
+
+## 作者
+藍奕欣
+[Github](https://github.com/ysl0628)<br>
+Email: yihsinlan@gmail.com
