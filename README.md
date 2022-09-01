@@ -3,6 +3,9 @@
 ![Imgur](https://imgur.com/n3dUv7s.png)
 > 此留言板以 React 18 及 TypeScript 撰寫，留言依照留言時間，由新至舊排序，每則留言皆有回覆的功能，回覆順序也依照時間新至舊排序。
 
+## 開始使用！
+[留言網址](https://ysl0628.github.io/react-typescript-comment/)
+
 ## 工具
 
 - React 18
