@@ -1,6 +1,6 @@
 {
-  "homepage": "https://ysl0628.github.io/ts_comment",
-  "name": "ts_comment",
+  "homepage": "https://ysl0628.github.io/react-typescript-comment",
+  "name": "react-typescript-comment",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
