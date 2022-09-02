@@ -1,10 +1,7 @@
+import { Reply } from "../store/reducers/commentSlice";
+
 type PropType = {
-  reply: {
-    commentId: string;
-    id: string;
-    content: string;
-    time: string;
-  };
+  reply: Reply;
 };
 
 export default function ReplyItem({ reply }: PropType) {

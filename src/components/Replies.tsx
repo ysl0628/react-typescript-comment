@@ -3,17 +3,12 @@ import { useState } from "react";
 import uuid from "react-uuid";
 import { useAppDispatch } from "../hooks/hook";
 // import useDate from "../hooks/useDate";
-import { createReply, Reply } from "../store/reducers/commentSlice";
+import { Comment, createReply } from "../store/reducers/commentSlice";
 import ReplyItem from "./ReplyItem";
 
 type PropType = {
   commentId: string;
-  comment: {
-    id: string;
-    content: string;
-    time: string;
-    replies?: Reply[];
-  };
+  comment: Comment;
 };
 
 export default function Replies({ commentId, comment }: PropType) {

@@ -14,12 +14,7 @@ export type Comment = {
 };
 
 export type CommentState = {
-  comment: {
-    id: string;
-    content: string;
-    time: string;
-    replies?: Reply[];
-  }[];
+  comment: Comment[];
 };
 
 const initialState: CommentState = {

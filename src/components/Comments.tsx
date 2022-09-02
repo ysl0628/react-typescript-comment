@@ -1,14 +1,9 @@
 import React, { useState } from "react";
-import { Reply } from "../store/reducers/commentSlice";
+import { Comment } from "../store/reducers/commentSlice";
 import Replies from "./Replies";
 
 type PropType = {
-  comment: {
-    id: string;
-    content: string;
-    time: string;
-    replies?: Reply[];
-  };
+  comment: Comment;
 };
 
 export default function Comments({ comment }: PropType) {
