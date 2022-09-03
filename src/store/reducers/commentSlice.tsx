@@ -18,8 +18,7 @@ export type CommentState = {
 };
 
 const initialState: CommentState = {
-  // @ts-ignore
-  comment: JSON.parse(localStorage.getItem("comments")) || [],
+  comment: JSON.parse(localStorage.getItem("comments") as string) || [],
 };
 export const commentSlice = createSlice({
   name: "comment",
