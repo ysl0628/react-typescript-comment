@@ -6,6 +6,7 @@ export type Reply = {
   content: string;
   time: string;
 };
+
 export type Comment = {
   id: string;
   content: string;
@@ -32,6 +33,7 @@ export const commentSlice = createSlice({
       const replyComment: Comment = state.comment.find((comment) => {
         return comment.id === action.payload.commentId;
       })!;
+      // replyComment.replies = [action.payload, ...replyComment.replies!];
       Array.isArray(replyComment.replies)
         ? (replyComment.replies = [action.payload, ...replyComment.replies])
         : (replyComment.replies = [action.payload]);

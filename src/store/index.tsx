@@ -5,10 +5,6 @@ const store = configureStore({
   reducer: {
     comment: commentReducer,
   },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: false,
-    }),
 });
 
 export type AppDispatch = typeof store.dispatch;
